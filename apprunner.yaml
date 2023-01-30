@@ -3,9 +3,9 @@ runtime: php81
 build:
   commands:
     build:
-      - echo hello world
+      - chmod +x ./startup.sh
 run:
   runtime-version: nginxtest
-  command: chmod +x ./startup.sh && ./startup.sh
+  command: ./startup.sh
   network:
     port: 8080
