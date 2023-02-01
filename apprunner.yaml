@@ -5,7 +5,6 @@ build:
     build:
       - chmod +x ./startup.sh
 run:
-  runtime-version: 8.1.12
   command: ./startup.sh
   network:
     port: 8080
