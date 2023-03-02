@@ -3,7 +3,8 @@ runtime: php81
 build:
   commands:
     build:
-      - pip install supervisor
+      - amazon-linux-extras install epel
+      - yum install supervisor
 run:
   runtime-version: nginxtest
   command: supervisord
