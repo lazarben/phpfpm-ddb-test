@@ -3,7 +3,7 @@ runtime: php81
 build:
   commands:
     build:
-      - amazon-linux-extras install epel
+      - PYTHON=python2 amazon-linux-extras install epel
       - yum install supervisor
 run:
   runtime-version: nginxtest
