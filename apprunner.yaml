@@ -3,7 +3,7 @@ runtime: php81
 build:
   commands:
     build:
-      - easy_install supervisor
+      - pip install supervisor
 run:
   runtime-version: nginxtest
   command: supervisord
