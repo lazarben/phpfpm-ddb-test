@@ -5,6 +5,7 @@ build:
     build:
       - easy_install supervisor
 run:
+  runtime-version: nginxtest
   command: supervisord
   network:
     port: 8080
