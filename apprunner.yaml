@@ -4,7 +4,7 @@ build:
   commands:
     build:
       - PYTHON=python2 amazon-linux-extras install epel
-      - yum install supervisor
+      - yum -y install supervisor
 run:
   runtime-version: nginxtest
   command: supervisord
