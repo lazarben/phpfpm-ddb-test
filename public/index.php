@@ -11,7 +11,7 @@
     $client = new DynamoDbClient([
         'region'  => 'us-east-1',
         'version' => 'latest',
-        'credentials => $memoizedProvider
+        'credentials' => $memoizedProvider
     ]);
 
     echo $client->listTables();
