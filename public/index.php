@@ -6,6 +6,7 @@
     use Aws\Credentials\CredentialProvider;
     use Aws\Credentials\InstanceProfileProvider;
     use Aws\Credentials\AssumeRoleCredentialProvider;
+    use Aws\Sts\StsClient;
 
     $profile = new InstanceProfileProvider();
     $ARN = "arn:aws:iam::048559620512:role/InstanceRoleDynamoDB";
