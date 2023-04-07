@@ -8,6 +8,6 @@ trap exit SIGCHLD
 nginx -g 'daemon off;' &
 
 # Start php-fpm
-php-fpm -F &
+php-fpm -F --php-ini . &
 
 wait
