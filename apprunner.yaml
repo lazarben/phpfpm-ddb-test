@@ -8,7 +8,7 @@ build:
       - curl https://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.phar --output aws.phar
 run:
   command: supervisord
-  runtime: phpfpmtest
+  runtime-version: phpfpmtest
   network:
     port: 8080
     env: APP_PORT
