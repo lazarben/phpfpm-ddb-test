@@ -8,31 +8,27 @@
     use Aws\Credentials\AssumeRoleCredentialProvider;
     use Aws\Sts\StsClient;
 
-    $profile = new InstanceProfileProvider();
     $ARN = "arn:aws:iam::048559620512:role/InstanceRoleDynamoDB";
     $sessionName = "ddb-session";
     
-
-    var_dump(getenv());
-
-    $assumeRoleCredentials = new AssumeRoleCredentialProvider([
-        'client' => new StsClient([
-            'region' => 'us-east-1',
-            'version' => 'latest',
-            'credentials' => $profile
-        ]),
-        'assume_role_params' => [
-            'RoleArn' => $ARN,
-            'RoleSessionName' => $sessionName,
-        ],
+    $stsClient = new StsClient([
+        'region' => 'us-east-1',
+        'version' => 'latest'
     ]);
-
-    $provider = CredentialProvider::memoize($assumeRoleCredentials);
+    
+    $result = $stsClient->AssumeRole([
+          'RoleArn' => $ARN,
+          'RoleSessionName' => $sessionName,
+    ]);
 
     $client = new DynamoDbClient([
         'region'  => 'us-east-1',
         'version' => 'latest',
-        'credentials' => $provider
+        'credentials' =>  [
+            'key'    => $result['Credentials']['AccessKeyId'],
+            'secret' => $result['Credentials']['SecretAccessKey'],
+            'token'  => $result['Credentials']['SessionToken']
+        ]
     ]);
 
     echo $client->listTables();
