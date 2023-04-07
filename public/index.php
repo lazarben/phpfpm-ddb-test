@@ -11,6 +11,9 @@
     $profile = new InstanceProfileProvider();
     $ARN = "arn:aws:iam::048559620512:role/InstanceRoleDynamoDB";
     $sessionName = "ddb-session";
+    
+
+    var_dump(getenv());
 
     $assumeRoleCredentials = new AssumeRoleCredentialProvider([
         'client' => new StsClient([
