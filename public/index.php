@@ -5,7 +5,7 @@
 
     use Aws\DynamoDb\DynamoDbClient;
     use Aws\Credentials\CredentialProvider;
-    var_dump(getenv());
+
     $provider = CredentialProvider::ecsCredentials();
     $memoizedProvider = CredentialProvider::memoize($provider);
 
